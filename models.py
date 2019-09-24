@@ -17,8 +17,6 @@ import numpy as np
 import os
 from scipy.stats import rankdata
 
-from layers.cnn import AttMatchingConv1D, AttConv1D
-from layers.BiMPM import FullMatching, MaxMatching, AttentiveMatching, MaxAttentiveMatching
 from callbacks.ensemble import *
 
 
@@ -312,8 +310,9 @@ class DPCNN(LanguageModel):
             b_char_embedding = char_emb(b_char)
             b_embedding = concatenate([b_embedding, b_char_embedding])
 
-        # highway = Highway()
-        # sent_embedding = TimeDistributed(highway)(sent_embedding)
+        highway = Highway()
+        a_embedding = TimeDistributed(highway)(a_embedding)
+        b_embedding = TimeDistributed(highway)(b_embedding)
 
         conv_1 = Conv1D(filters=250, kernel_size=3, padding='same', strides=1)
         region_x_a = conv_1(a_embedding)
