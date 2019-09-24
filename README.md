@@ -24,14 +24,17 @@ gensim
 代码运行如下：
 
 - 模型训练：
+
   main 中的train = True，然后models选择合适的models名称，比如esim
   ```python main.py```
 
-- 模型测试，采用公开测试集产生测试结果（用于测试代码的正确性和了解模型效果）：
+- 模型测试: 采用公开测试集产生测试结果（用于测试代码的正确性和了解模型效果）：
+
   main 中的train = True，overwrite = False，然后models选择合适的models名称，比如esim, 如果此时已经有了已训练好的模型，会load并输出结果
   ```python main.py```
 
-- 训练且产生测试集结果用于提交(模型将结果保存在output文件夹下)：
+- 模型提交：(模型将结果保存在output文件夹下)：
+
   main 中的train = False，此时会调用服务器测试数据进行输出
   ```python main.py```
 
