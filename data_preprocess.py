@@ -325,7 +325,7 @@ if __name__ == '__main__':
     vocab = build_word_level_vocabulary_all('data/input.txt')
     with open('data/word_level/vocabulary_all.pkl', 'wb') as vocabulary_pkl:
         pickle.dump(vocab, vocabulary_pkl, -1)
-        print(len(vocab)) # 4536
+        print(len(vocab))  # 4536
     build_word_level_corpus_all('data/input.txt')
     generate_embedding('word')
     # generate_fasttext_embedding('word')
