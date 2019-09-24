@@ -14,7 +14,7 @@ class Config(object):
         self.num_epochs = 100
         self.learning_rate = 0.001
         self.optimizer = "adam"
-        self.batch_size = 64  # preattcnn 20
+        self.batch_size = 64
         self.verbose_training = 1
         self.checkpoint_monitor = "val_acc"
         self.checkpoint_mode = "max"
