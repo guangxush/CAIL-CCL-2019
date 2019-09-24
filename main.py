@@ -9,7 +9,7 @@ level = 'word'
 fasttext = False
 overwrite = False
 swa = False
-model_name = 'preattcnn'
+model_name = 'esim'
 
 
 def get_data(train_file=None, test_file=None, level='word'):
@@ -106,9 +106,6 @@ class Train(object):
         dev_results = self.fold_train(10)
         self.model_name = 'siamese_cnn'
         dev_results.append(self.fold_train(10))
-        self.model_name = 'preattcnn'
-        self.config.batch_size = 20
-        dev_results.append(self.fold_train(10))
         self.write_results(dev_results)
 
     def write_results(self, results_cv):
@@ -141,10 +138,8 @@ class Train(object):
 
     def name2model(self):
         m = {'siamese_cnn': SiameseCNN,
-             'att_cnn': AttCNN,
              'esim': ESIM,
-             'dpcnn': DPCNN,
-             'preattcnn': PreAttCNN}
+             'dpcnn': DPCNN}
         self.M = m[self.model_name]
 
     def get_config(self):
@@ -159,8 +154,6 @@ class Train(object):
             self.config.exp_name += '_fasttext'
         else:
             self.config.embedding_file += 'embeddings'
-        if self.model_name == 'preattcnn':
-            self.config.batch_size = 20
 
 
 class Test(object):
@@ -183,10 +176,8 @@ class Test(object):
 
     def name2model(self):
         m = {'siamese_cnn': SiameseCNN,
-             'att_cnn': AttCNN,
              'esim': ESIM,
-             'dpcnn': DPCNN,
-             'preattcnn': PreAttCNN}
+             'dpcnn': DPCNN}
         self.M = m[self.model_name]
 
     def get_config(self):
@@ -201,16 +192,11 @@ class Test(object):
             self.config.exp_name += '_fasttext'
         else:
             self.config.embedding_file += 'embeddings'
-        if self.model_name == 'preattcnn':
-            self.config.batch_size = 20
 
     def fold_merge(self):
         self.model_name = 'esim'
         results_cv = self.fold_test(10)
         self.model_name = 'siamese_cnn'
-        results_cv.append(self.fold_test(10))
-        self.model_name = 'preattcnn'
-        self.config.batch_size = 20
         results_cv.append(self.fold_test(10))
         self.write_results(results_cv)
 
@@ -222,9 +208,6 @@ class Test(object):
             results = self.siamese_model.predict(self.x_a_test, self.x_b_test, a_char=self.x_a_char_test,
                                                  b_char=self.x_b_char_test)
             results_cv.append(results)
-        # if not os.path.exists('output/'):
-        #     os.makedirs('output')
-        # self.write_results(results_cv)
         return results_cv
 
     def write_results(self, results_cv):
@@ -246,10 +229,8 @@ class Test(object):
 if __name__ == '__main__':
     if train:
         train_data, test_data, vocab = get_data('data/input.txt', 'input/input.txt', level=level)
-        train_esim = Train(train_data, test_data, vocab, model_name="preattcnn")
-        results = train_esim.fold_train(10)
         train_cnn = Train(train_data, test_data, vocab, model_name='siamese_cnn')
-        results += train_cnn.fold_train(10)
+        results = train_cnn.fold_train(10)
         train_att_cnn = Train(train_data, test_data, vocab, model_name='esim')
         results += train_att_cnn.fold_train(10)
         train_att_cnn.write_results(results)
@@ -258,7 +239,5 @@ if __name__ == '__main__':
         test_esim = Test(test_data, vocab, model_name='esim')
         results = test_esim.fold_test(10)
         test_cnn = Test(test_data, vocab, model_name='siamese_cnn')
-        results += test_esim.fold_test(10)
-        test_att_cnn = Test(test_data, vocab, model_name='preattcnn')
         results += test_esim.fold_test(10)
         test_att_cnn.write_results(results)
