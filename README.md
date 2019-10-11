@@ -42,14 +42,14 @@ gensim
   main 中的train = False，此时会调用服务器测试数据进行输出
   ```python main.py```
 
-## 参数说明
+## Parameters Introduction
 1. train: True训练、False测试(提交时必须改为False)
 2. level: 'word'词级、'word_char'字词级
 3. model_name: 'siamese_cnn'、'esim'、'dpcnn'
 4. 这里的main已经对多个模型交叉验证并把输出结果集成
 
-## 结果
-## level1 初赛
+## Result
+### level1 初赛
 |model         |mode        |level      |word_embedding   |fold     |Acc    |
 |--------------|:----------:|:---------:|:---------------:|:-------:|:-----:|
 |siamese_cnn   |margin_loss |word       |word2vec_300dim  |10       |88.04  |
@@ -57,7 +57,7 @@ gensim
 |bert          |margin_loss |char       |word2vec_300dim  |1        |76.99  |
 |dpcnn         |margin_loss |word       |word2vec_300dim  |10       |70.55  |
 
-## level2 复赛
+### level2 复赛
 |model         |mode        |level      |word_embedding   |fold     |offline|online |
 |--------------|:----------:|:---------:|:---------------:|:-------:|:-----:|:-----:|
 |esim          |margin_loss |word       |word2vec_300dim  |10       |79.45  |66.47  |
