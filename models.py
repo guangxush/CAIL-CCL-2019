@@ -3,20 +3,14 @@
 from abc import abstractmethod
 
 from keras.engine import Input
-from keras.layers import merge, Embedding, Dropout, Conv1D, MaxPooling1D, Flatten, Lambda, LSTM, CuDNNLSTM, Dense, \
-    concatenate, TimeDistributed, GlobalMaxPool1D, Reshape, Permute, Dot, Add, Multiply, Conv2D, MaxPooling2D, \
-    BatchNormalization, Bidirectional, GlobalAvgPool1D, GlobalMaxPooling1D, Activation, SpatialDropout1D
-from keras import backend as K, initializers, regularizers, constraints, activations
+from keras.layers import Embedding, Dropout, Conv1D, MaxPooling1D, Flatten, Lambda, CuDNNLSTM, Dense, \
+    concatenate, TimeDistributed, GlobalMaxPool1D, Permute, Dot, Add, Multiply, \
+    BatchNormalization, Bidirectional, GlobalAvgPool1D, GlobalMaxPooling1D, Activation
 from keras.activations import softmax
 from keras.models import Model
-from keras.engine.topology import Layer
 from keras.preprocessing.sequence import pad_sequences
-from keras.callbacks import ModelCheckpoint, EarlyStopping, Callback
 from layers.similarity import Highway
 import numpy as np
-import os
-from scipy.stats import rankdata
-
 from callbacks.ensemble import *
 
 

@@ -43,7 +43,7 @@ CAIL-CCL-2019人工智能大赛-相似案例匹配
 ## Result
 |      | Model       | Level | Embedding       | Fold | Acc   |
 |------|-------------|-------|-----------------|------|-------|
-| 初赛  | siamese_cnn | word  | word2vec_300dim | 10   | 90.8  |
+| 初赛  | siamese_cnn | word  | word2vec_300dim | 10   | 90.80 |
 |      | esim        | word  | word2vec_300dim | 10   | 79.45 |
 |      | cnn+esim    | word  | word2vec_300dim | 20   | 81.29 |
 | 复赛  | siamese_cnn | word  | word2vec_300dim | 10   | 65.33 |
@@ -52,3 +52,16 @@ CAIL-CCL-2019人工智能大赛-相似案例匹配
 | 决赛  | siamese_cnn | word  | word2vec_300dim | 10   | 71.29 |
 |      | esim        | word  | word2vec_300dim | 10   | 70.96 |
 |      | cnn+esim    | word  | word2vec_300dim | 20   | 68.75 |
+
+## Parameters Tuning
+1. epochs = 100
+2. batch_size = 64
+3. margin = 0.15
+4. max_len_word = 500
+5. embedding_dim = 300
+6. dropout = 0.2
+7. early_stopping_patience = 20
+8. optimizer = adam
+9. learning_rate= 0.001
+10. CNN: filter_length = [2, 3, 4, 5]; filters = 200; maxPooling = 500
+11. ESIM: LSTM:units = 300
