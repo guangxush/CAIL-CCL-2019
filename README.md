@@ -4,15 +4,7 @@ CAIL-CCL-2019人工智能大赛-相似案例匹配
 
 ## Requirement
 
-Python 3.x
-
-Keras 2.x
-
-sklearn
-
-numpy
-
-gensim
+```Python 3.x Keras 2.x sklearn numpy gensim```
 
 ## Files
 - callbacks 回调函数swa
