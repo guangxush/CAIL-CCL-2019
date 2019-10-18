@@ -4,7 +4,7 @@ CAIL-CCL-2019人工智能大赛-相似案例匹配
 
 ## Requirement
 
-```Python 3.x Keras 2.x sklearn numpy gensim```
+```Python 3.x   Keras 2.x   sklearn   numpy   gensim```
 
 ## Files
 - callbacks 回调函数swa
@@ -54,14 +54,14 @@ CAIL-CCL-2019人工智能大赛-相似案例匹配
 |      | cnn+esim    | word  | word2vec_300dim | 20   | 68.75 |
 
 ## Parameters Tuning
-1. epochs = 100
-2. batch_size = 64
-3. margin = 0.15
-4. max_len_word = 500
-5. embedding_dim = 300
-6. dropout = 0.2
-7. early_stopping_patience = 20
-8. optimizer = adam
-9. learning_rate= 0.001
-10. CNN: filter_length = [2, 3, 4, 5]; filters = 200; maxPooling = 500
-11. ESIM: LSTM:units = 300
+- epochs = 100
+- batch_size = 64
+- margin = 0.15
+- max_len_word = 500
+- embedding_dim = 300
+- dropout = 0.2
+- early_stopping_patience = 20
+- optimizer = adam
+- learning_rate= 0.001
+- CNN: filter_length = [2, 3, 4, 5]; filters = 200; maxPooling = 500
+- ESIM: LSTM:units = 300
