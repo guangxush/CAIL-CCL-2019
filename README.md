@@ -67,11 +67,11 @@ CAIL-CCL-2019人工智能大赛-相似案例匹配
 - ESIM: LSTM:units = 300
 
 ## Models Introduction
-- 模型整体框架
+### 模型整体框架
 ![image1](https://github.com/guangxush/CAIL-CCL-2019/blob/master/image/image1.png)
-- CNN模型结构
+### CNN模型结构
 ![image1](https://github.com/guangxush/CAIL-CCL-2019/blob/master/image/image2.png)
-- ESIM模型结构
+### ESIM模型结构
 ![image1](https://github.com/guangxush/CAIL-CCL-2019/blob/master/image/image3.png)
-- 集成模型结构
+### 集成模型结构
 ![image1](https://github.com/guangxush/CAIL-CCL-2019/blob/master/image/image4.png)
