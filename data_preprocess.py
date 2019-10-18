@@ -4,13 +4,10 @@ import os, codecs
 import pickle
 import numpy as np
 import jieba
-from tqdm import tqdm
 from gensim.models import Word2Vec
 from gensim.models.word2vec import LineSentence
 import logging
 import sys
-import requests
-import time
 
 
 def generate_embedding(level):
@@ -168,22 +165,6 @@ def build_char_level_vocabulary_all(train_file, valid_file=None, test_file=None)
     char_list = list(set([char for char in corpus]))
 
     return dict((char, idx+1) for idx, char in enumerate(char_list))
-
-
-def send(sentences):
-    try:
-        url = "http://localhost:8080/server/hello"
-        headers = {
-            'Connection': 'keep-alive',
-            'Content-Type': 'application/json; charset=UTF-8'
-        }
-        payload = {'context': sentences.strip("\n")}
-        r = requests.post(url, json=payload, headers=headers, verify=False)
-        print(r)
-    except Exception as e:
-        pass
-    finally:
-        pass
 
 
 def load_data(raw_file, level='word', test=False):
