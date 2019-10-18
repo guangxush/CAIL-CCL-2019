@@ -49,15 +49,14 @@ gensim
 4. 这里的main已经对多个模型交叉验证并把输出结果集成
 
 ## Result
-### level1 初赛
-|model         |mode        |level      |word_embedding   |fold     |Acc    |
-|--------------|:----------:|:---------:|:---------------:|:-------:|:-----:|
-|siamese_cnn   |margin_loss |word       |word2vec_300dim  |10       |88.04  |
-|esim          |margin_loss |word       |word2vec_300dim  |10       |79.45  |
-|bert          |margin_loss |char       |word2vec_300dim  |1        |76.99  |
-|dpcnn         |margin_loss |word       |word2vec_300dim  |10       |70.55  |
-
-### level2 复赛
-|model         |mode        |level      |word_embedding   |fold     |offline|online |
-|--------------|:----------:|:---------:|:---------------:|:-------:|:-----:|:-----:|
-|esim          |margin_loss |word       |word2vec_300dim  |10       |79.45  |66.47  |
+|      | Model       | Level | Embedding       | Fold | Acc   |
+|------|-------------|-------|-----------------|------|-------|
+| 初赛  | siamese_cnn | word  | word2vec_300dim | 10   | 90.8  |
+|      | esim        | word  | word2vec_300dim | 10   | 79.45 |
+|      | cnn+esim    | word  | word2vec_300dim | 20   | 81.29 |
+| 复赛  | siamese_cnn | word  | word2vec_300dim | 10   | 65.33 |
+|      | esim        | word  | word2vec_300dim | 10   | 66.47 |
+|      | cnn+esim    | word  | word2vec_300dim | 20   | 64.93 |
+| 决赛  | siamese_cnn | word  | word2vec_300dim | 10   | 71.29 |
+|      | esim        | word  | word2vec_300dim | 10   | 70.96 |
+|      | cnn+esim    | word  | word2vec_300dim | 20   | 68.75 |
