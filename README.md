@@ -63,7 +63,7 @@ CAIL-CCL-2019人工智能大赛-相似案例匹配
 - early_stopping_patience = 20
 - optimizer = adam
 - learning_rate= 0.001
-- CNN: filter_length = [2, 3, 4, 5]; filters = 200; maxPooling = 500
+- CNN: filter_length = [2, 3, 4, 5]; filters = 200;
 - ESIM: LSTM:units = 300
 
 ## Models Introduction
